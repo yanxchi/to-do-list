@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import './App.css';
 import InputField from './components/InputField';
-import TodoList from './components/TodoList';
 import { Todo } from "./model";
+import TodoList from './components/TodoList';
 
 const App:React.FC = () => { /* FC is functional component*/ 
   const [todo , setTodo] = useState<string>(""); 
@@ -12,8 +12,11 @@ const App:React.FC = () => { /* FC is functional component*/
 
   const handleAdd = (e: React.FormEvent) => {
     e.preventDefault(); /*Prevents auto refresh everytime you press go */
-    if(todo){
+    if(todo.length > 3){
       setTodos([...todos, {id: Date.now(), todo: todo, isDone: false}])
+      setTodo("");
+    }
+    else{
       setTodo("");
     }
   };
@@ -21,7 +24,7 @@ const App:React.FC = () => { /* FC is functional component*/
     <div className="App">
       <span className="heading">To-do</span> 
       <InputField todo = {todo} setTodo = {setTodo} handleAdd = {handleAdd}/>
-      <TodoList todos = {todos} setTodos = {setTodos}/>
+      <TodoList todos = {todos} setTodos={setTodos}/>
     </div>
   );
 };

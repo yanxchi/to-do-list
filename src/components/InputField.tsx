@@ -18,19 +18,27 @@ interface Props{
 }
 
 const InputField = ({ todo, setTodo, handleAdd }: Props) => {
-const inputRef = useRef<HTMLInputElement>(null) // useRef is like when we use document.element.className etc.  
-  return(
-    <form className = 'input' 
-    onSubmit={(e) => 
+  const handleSubmit = (e: React.FormEvent) => {
+    if(todo.length <= 3)
     {
+      e.preventDefault();
+      alert("To-do item must be more than 3 characters. Please try again");
+      setTodo("");
+      inputRef.current?.blur();
+    }
+    else{
+      e.preventDefault();
       handleAdd(e);
       inputRef.current?.blur();
-    }}>
+    }
+  }
+const inputRef = useRef<HTMLInputElement>(null) // useRef is like when we use document.element.className etc.  
+  return(
+    <form className = 'input' onSubmit={handleSubmit}>
         <input type = 'input' 
         ref = {inputRef}
         value = {todo}
-        onChange= {
-          (e) => setTodo(e.target.value)}
+        onChange= {(e) => setTodo(e.target.value)}
         placeholder = "Enter a new task" 
         className = "input__box"></input>
         <button className = 'input__submit' type = "submit"> Add </button>
