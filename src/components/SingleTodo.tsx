@@ -25,7 +25,6 @@ import { Todo } from "../model";
 import { AiFillEdit, AiFillDelete } from 'react-icons/ai';
 import { MdDone } from 'react-icons/md';
 import "./styles.css";
-import TodoList from './TodoList';
 
 type Props = { // In interface, don't need equal sign but in type we need! 
     todo: Todo,
@@ -49,13 +48,23 @@ const SingleTodo = ({todo, todos, setTodos}: Props) => {
         setTodos(todos.filter((todo)=> todo.id!==id));
     };
 
-    const handleEdit = (e: React.FormEvent, id: number)=>{
-        e.preventDefault();        
-        setTodos(todos.map((todo)=> (
-            todo.id===id?({...todo, todo:editTodo}):(todo
-            ))));
+    const handleSubmit = (e:React.FormEvent, id: number) => {
+        if (editTodo.length<=3)
+        {
+            e.preventDefault();
+            alert("To-do item must be more than 3 characters. Please try again.")
+            seteditTodo(todo.todo);
             setEdit(false);
-    };
+        }
+        else
+        {
+            e.preventDefault();        
+            setTodos(todos.map((todo)=> (
+                todo.id===id?({...todo, todo:editTodo}):(todo
+                ))));
+                setEdit(false);
+        }
+    }
     const inputRef = useRef<HTMLInputElement>(null);
       
     useEffect(() => {
@@ -64,7 +73,7 @@ const SingleTodo = ({todo, todos, setTodos}: Props) => {
     
 
     return(
-  <form className= "todos__single" onSubmit={(e)=> handleEdit(e, todo.id)}>
+  <form className= "todos__single" onSubmit={(e) => handleSubmit(e, todo.id)}>
       {
           edit? (
             <input 

@@ -22,7 +22,7 @@ const InputField = ({ todo, setTodo, handleAdd }: Props) => {
     if(todo.length <= 3)
     {
       e.preventDefault();
-      alert("To-do item must be more than 3 characters. Please try again");
+      alert("To-do item must be more than 3 characters. Please try again.");
       setTodo("");
       inputRef.current?.blur();
     }
