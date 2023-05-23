@@ -22,9 +22,8 @@ together).
 
 import React, {useEffect, useRef, useState} from 'react';
 import { Todo } from "../model";
-import { AiFillEdit, AiFillDelete } from 'react-icons/ai';
+import { AiFillDelete } from 'react-icons/ai';
 import {BsCircle} from 'react-icons/bs'
-import { MdDone } from 'react-icons/md';
 import {FiCheckCircle} from 'react-icons/fi'
 import "./styles.css";
 

@@ -18,7 +18,9 @@ interface Props{
 }
 
 const InputField = ({ todo, setTodo, handleAdd }: Props) => {
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => { 
+    //handleSubmit is separated from handleAdd so that 
+    // we can do 1 round of checking at the submitting stage. 
     if(todo.length <= 3)
     {
       e.preventDefault();
@@ -34,15 +36,15 @@ const InputField = ({ todo, setTodo, handleAdd }: Props) => {
   }
 const inputRef = useRef<HTMLInputElement>(null) // useRef is like when we use document.element.className etc.  
   return(
-    <form className = 'input' onSubmit={handleSubmit}>
+    <form className = 'input1' onSubmit={handleSubmit}>
         <input type = 'input' 
         ref = {inputRef}
         value = {todo}
         onChange= {(e) => setTodo(e.target.value)}
         placeholder = "Enter a new task" 
-        className = "input__box">
+        className = "input__box1">
         </input>
-        <button className = 'input__submit' type = "submit"> Add </button>
+        <button className = 'input__submit1' type = "submit"> Add </button>
     </form>)
 }
 

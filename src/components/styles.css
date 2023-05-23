@@ -1,5 +1,5 @@
 /*InputField form*/
-.input {
+.input1 {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -7,9 +7,11 @@
     border-radius: 30px;
     padding-left: 20px;
     margin-bottom: 25px;
+    outline: none;
+
 } 
 /*InputField box*/
-.input__box{
+.input__box1{
     flex:1px;
     border: none;
     outline: none;
@@ -18,17 +20,17 @@
     font-weight: 14px;
 }
 /*InputField box*/
-.input__box:focus {
+.input__box1:focus {
     box-shadow: 0 0 10px 1000px rgba(0, 0, 0, 0.15);
     /* last argument of color is the transparency. */
     outline: none;
 }
 /*InputField box*/
-.input__submit{
+.input__submit1{
     border: none;
     outline: none;
     padding: 16px 20px;
-    background: #ff5945;
+    background: #4e4caf;
     color: #f2f2f2;
     border-radius: 50px;
     font-size: 16px;
@@ -36,11 +38,11 @@
     cursor: pointer;
 }
 /*InputField box*/
-.input__submit:hover{
-    background-color: #fa2008;
+.input__submit1:hover{
+    background-color: #201ea5;
 }
 /*InputField box*/
-.input__submit:active{
+.input__submit1:active{
     transform: scale(0.8);
     box-shadow: 0 0 5px black;
 }
@@ -67,18 +69,11 @@
   .icon {
     margin-left: 5px;
   }
-  
-  .edit-icon {
-    color: blue;
-  }
-  
+
   .delete-icon {
     color: red;
   }
   
-  .done-icon {
-    color: green;
-  }
 
   .todo-item{
       list-style: none;

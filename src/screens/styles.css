@@ -1,9 +1,93 @@
-.greeting{
-    text-align: center;
+.container-homepage {
+  display: flex; /* Displays the container as a flex container */
+  flex-direction: column; /* Arranges the flex items vertically */
+  align-items: center; /* Centers the flex items horizontally */
+  justify-content: center; /* Centers the flex items vertically */
+}
+.greeting,
+.to-do-heading,
+.diary-heading,
+.create-diary-heading {
+  text-align: center;
+  display: block;
 }
 
-.container-homepage {
+.description {
+  display: block;
+  text-align: center;
+}
+
+.homepage-buttons {
+  display: flex; /* Displays the buttons container as a flex container */
+  gap: 10px; /* Adds a 10px gap between the buttons */
+  margin-top: 20px; /* Adds a top margin of 20px to create spacing from the description */
+}
+
+.to-do-button,
+.diary-button {
+  padding: 10px 20px; /* Adds 10px padding on the top/bottom and 20px padding on the left/right of the buttons */
+  background-color: #4e4caf; /* Sets the background color of the buttons */
+  color: white; /* Sets the text color of the buttons to white */
+  border: none; /* Removes the border around the buttons */
+  border-radius: 4px; /* Adds rounded corners to the buttons */
+  cursor: pointer; /* Displays a cursor pointer when hovering over the buttons */
+}
+
+.to-do-button:hover,
+.diary-button:hover {
+  background-color: #201ea5; /* Changes the background color of the buttons on hover */
+}
+
+.input__box {
+  position: relative;
+  background: transparent;
+  width: 100%;
+  height: 190px;
+  border-width: 0px;
+  vertical-align: text-top; /* Adjust the vertical alignment to the top of the text */
+}
+
+.input__box::placeholder {
+  position: absolute;
+  color: gray;
+  top: 25px;
+  left: 10px;
+}
+
+.input {
     display: flex;
-    justify-content: center;
     align-items: center;
-  }
+    justify-content: space-between;
+    background: #edeef0;
+    border-radius: 30px;
+    padding-left: 20px;
+    margin-bottom: 25px;
+} 
+
+/*InputField box*/
+.input__box:focus {
+    box-shadow: 0 0 10px 1000px rgba(0, 0, 0, 0.15);
+    /* last argument of color is the transparency. */
+    outline: none;
+}
+/*InputField box*/
+.input__submit{
+    border: none;
+    outline: none;
+    padding: 16px 20px;
+    background: #4e4caf;
+    color: #f2f2f2;
+    border-radius: 50px;
+    font-size: 16px;
+    position: relative;
+    cursor: pointer;
+}
+/*InputField box*/
+.input__submit:hover{
+    background-color: #201ea5;
+}
+/*InputField box*/
+.input__submit:active{
+    transform: scale(0.8);
+    box-shadow: 0 0 5px black;
+}
