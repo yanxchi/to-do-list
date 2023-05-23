@@ -40,7 +40,8 @@ const inputRef = useRef<HTMLInputElement>(null) // useRef is like when we use do
         value = {todo}
         onChange= {(e) => setTodo(e.target.value)}
         placeholder = "Enter a new task" 
-        className = "input__box"></input>
+        className = "input__box">
+        </input>
         <button className = 'input__submit' type = "submit"> Add </button>
     </form>)
 }

@@ -22,11 +22,15 @@ const TodoList:React.FC<Props>= ({todos,setTodos})=> {
     <div className = "todos">
         {
             todos.map(todo => (
-                <SingleTodo 
-                todo = {todo} 
-                key = {todo.id}
-                todos= {todos}
-                setTodos = {setTodos}/>
+                <ul>
+                  <li className='todo-item'>
+                    <SingleTodo 
+                    todo = {todo} 
+                    key = {todo.id}
+                    todos= {todos}
+                    setTodos = {setTodos}/>
+                  </li>
+                </ul>
                 ))
         }
     </div>

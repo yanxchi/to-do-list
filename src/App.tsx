@@ -6,15 +6,25 @@ import ToDoListpage from './screens/ToDoListpage';
 
 const App:React.FC = () => { /* FC is functional component*/ 
   return (
-    <div className="App">
-      <nav className="nav">
-        <Link to ="/" className = "nav-item">Home</Link>
-        <Link to ="/to-do" className = "nav-item">To do</Link>
+    
+    <div className="container">
+      <nav className="navbar">
+        <ul className="navbar__list">
+          <li className="navbar__item1">
+            <Link to="/" className="navbar__link1">Home</Link>
+          </li>
+          <li className="navbar__item2">
+            <Link to="/to-do" className="navbar__link2">To Do</Link>
+          </li>
+        </ul>
       </nav>
-      <Routes>
-        <Route path = "/" element = {<Homepage/>} />
-        <Route path = "/to-do" element = {<ToDoListpage/>}/>
-      </Routes>
+      <div className="App">
+        <h2 className='heading'>To-Do List</h2>
+        <Routes>
+          <Route path = "/" element = {<Homepage/>} />
+          <Route path = "/to-do" element = {<ToDoListpage/>}/>
+        </Routes>
+      </div>
     </div>
   );
 };

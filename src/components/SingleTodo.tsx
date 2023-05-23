@@ -23,7 +23,9 @@ together).
 import React, {useEffect, useRef, useState} from 'react';
 import { Todo } from "../model";
 import { AiFillEdit, AiFillDelete } from 'react-icons/ai';
+import {BsCircle} from 'react-icons/bs'
 import { MdDone } from 'react-icons/md';
+import {FiCheckCircle} from 'react-icons/fi'
 import "./styles.css";
 
 type Props = { // In interface, don't need equal sign but in type we need! 
@@ -73,40 +75,38 @@ const SingleTodo = ({todo, todos, setTodos}: Props) => {
     
 
     return(
-  <form className= "todos__single" onSubmit={(e) => handleSubmit(e, todo.id)}>
-      {
-          edit? (
-            <input 
-            ref = {inputRef}
-            value = {editTodo} 
-            onChange={(e)=> seteditTodo(e.target.value)} 
-            className='todos__single--text'/>
-          ):
-          todo.isDone?(
-              <s className='todos__single--text'>{todo.todo}</s>
-          ):
-          (<span className='todos__single--text'>{todo.todo}</span>)
-      }
-      <div>
-          <span className="icon" onClick={() => {
-              if(!edit && !todo.isDone)
-              {
-                setEdit(!edit);
-              }
-          }}
-          >
-              <AiFillEdit />
-          </span>
-          
-          <span className="icon"  onClick = {() => handleDelete(todo.id)}>
-              <AiFillDelete />
-          </span>
-          
-          <span className="icon" onClick = {() => handleDone(todo.id)}>
-              <MdDone />
-          </span>
-      </div>
-  </form>
+        <form className="todos__single" onSubmit={(e) => handleSubmit(e, todo.id)}>
+        <div className="todo-single-container">
+          <div className="todos-container">
+            {edit ? (
+            <div>  
+                <span className= "check-icon" onClick={() => handleDone(todo.id)}><BsCircle/></span>
+                <input
+                    ref={inputRef}
+                    value={editTodo}
+                    onChange={(e) => seteditTodo(e.target.value)}
+                    className="todos__single--text"
+                />
+            </div>
+            ) : todo.isDone ? (
+            <div>
+                <s className= "check-icon" onClick={() => handleDone(todo.id)}><FiCheckCircle/></s>
+                <s className="todos__single--text">{todo.todo}</s>
+            </div>
+            ) : (
+            <div>
+                <span className= "check-icon" onClick={() => handleDone(todo.id)}><BsCircle/></span>
+                <span className="todos__single--text" onClick={() => { if (!edit && !todo.isDone) {setEdit(!edit);}}} >{todo.todo}</span>
+            </div>
+            )}
+          </div>
+          <div className="icon-container">
+            <span className="icon delete-icon" onClick={() => handleDelete(todo.id)}>
+              <AiFillDelete size={16} />
+            </span>
+          </div>
+        </div>
+      </form>
   );
 };
 

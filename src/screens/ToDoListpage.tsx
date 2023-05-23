@@ -21,8 +21,8 @@ const ToDoListpage = () => {
     };
     return (
         <div>
-        <InputField todo = {todo} setTodo = {setTodo} handleAdd = {handleAdd}/>
-        <TodoList todos = {todos} setTodos={setTodos}/>
+          <InputField todo = {todo} setTodo = {setTodo} handleAdd = {handleAdd}/>
+          <TodoList todos = {todos} setTodos={setTodos}/>
         </div>
     )
 }
