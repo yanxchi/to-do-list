@@ -18,10 +18,11 @@
     background: transparent;
     padding: 10px;
     font-weight: 14px;
+    font-size: 17px;
 }
 /*InputField box*/
 .input__box1:focus {
-    box-shadow: 0 0 10px 1000px rgba(0, 0, 0, 0.15);
+    /* box-shadow: 0 0 10px 1000px rgba(0, 0, 0, 0.15); */
     /* last argument of color is the transparency. */
     outline: none;
 }
@@ -33,7 +34,7 @@
     background: #4e4caf;
     color: #f2f2f2;
     border-radius: 50px;
-    font-size: 16px;
+    font-size: 17px;
     position: relative;
     cursor: pointer;
 }
@@ -90,4 +91,21 @@
 
 .todos__single--text{
     margin-left: 10px;
+    margin-bottom: 100px;
+}
+
+.todos__edit--text{
+  flex:1px;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 10px;
+  font-size: 17px;
+  color: #4e4caf; 
+}
+
+.todos__edit--text:focus {
+  /* box-shadow: 0 0 10px 1000px rgba(0, 0, 0, 0.15);  */
+  /* last argument of color is the transparency. */
+  outline: none;
 }

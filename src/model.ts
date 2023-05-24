@@ -1,4 +1,3 @@
-import * as Datetime from "react-datetime";
 
 export interface Todo {
   id: number;

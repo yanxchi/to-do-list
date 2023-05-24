@@ -84,7 +84,7 @@ const SingleTodo = ({todo, todos, setTodos}: Props) => {
                     ref={inputRef}
                     value={editTodo}
                     onChange={(e) => seteditTodo(e.target.value)}
-                    className="todos__single--text"
+                    className="todos__edit--text"
                 />
             </div>
             ) : todo.isDone ? (
